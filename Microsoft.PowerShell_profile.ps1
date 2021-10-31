@@ -16,6 +16,11 @@ function prompt() {
 	return ' '
 }
 
+Set-Alias ls list
+function list() {
+	Get-ChildItem -Name
+}
+
 function touch([string] $filename) {
 	New-Item -Type File $filename | Out-Null
 }
