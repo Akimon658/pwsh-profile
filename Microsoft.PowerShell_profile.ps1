@@ -11,7 +11,7 @@ function prompt() {
 		Write-Host $PWD -ForegroundColor Green
 	}
 
-	Write-Host '$' -NoNewline -Foregroundcolor Green
+	Write-Host '$' -NoNewline -Foregroundcolor White
 
 	return ' '
 }
