@@ -3,6 +3,6 @@ function prompt() {
 	'> '
 }
 
-function touch($filename) {
+function touch([string] $filename) {
 	New-Item -Type File $filename | Out-Null
 }
