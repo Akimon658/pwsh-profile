@@ -1,5 +1,5 @@
 function prompt() {
-	$Host.UI.WriteLine($(Get-Location).Path)
+	$Host.UI.WriteLine($PWD)
 	'$ '
 }
 
