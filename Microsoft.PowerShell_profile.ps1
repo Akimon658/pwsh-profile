@@ -1,14 +1,12 @@
 function prompt() {
-	Write-Host ''
+	Write-Host "`r`n$PWD" -NoNewline -ForegroundColor Green
 
 	if (Test-Path .git) {
-		Write-Host $PWD -NoNewline -ForegroundColor Green
-
 		$branch = git rev-parse --abbrev-ref HEAD
 		Write-Host " ($branch)" -ForegroundColor Blue
 	}
 	else {
-		Write-Host $PWD -ForegroundColor Green
+		Write-Host "`r"
 	}
 
 	Write-Host '$' -NoNewline -Foregroundcolor White
