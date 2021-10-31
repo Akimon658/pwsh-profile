@@ -1,5 +1,5 @@
 function prompt() {
-	$Host.UI.WriteLine($PWD)
+	Write-Host $PWD -ForegroundColor Green
 	'$ '
 }
 
