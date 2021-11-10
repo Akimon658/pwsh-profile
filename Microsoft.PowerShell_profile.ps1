@@ -19,6 +19,21 @@ function list() {
 	Get-ChildItem -Name
 }
 
+Set-Alias mkdir makeDir
+
+function makeDir([string] $dir) {
+	if (Test-Path $dir) {
+		Write-Host "`r`n$dir already exists" -ForegroundColor Red
+	}
+	else {
+		New-Item -ItemType Directory -Force -Path $dir | Out-Null
+	}
+}
+
+function sudo([string] $cmd, $argumet) {
+	Start-Process $cmd -Verb runas $argumet
+}
+
 function touch([string] $filename) {
 	New-Item -Type File $filename | Out-Null
 }
