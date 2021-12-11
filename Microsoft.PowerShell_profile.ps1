@@ -4,6 +4,7 @@ function prompt() {
 	if ($currentDir.Contains($HOME)) {
 		$currentDir = $currentDir.Replace($HOME, "~")
 	}
+	$currentDir = $currentDir.Replace("\", "/")
 
 	Write-Host "$currentDir" -NoNewline -ForegroundColor Green
 
