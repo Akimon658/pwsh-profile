@@ -1,5 +1,11 @@
 function prompt() {
-	Write-Host "$PWD" -NoNewline -ForegroundColor Green
+	$currentDir = (Convert-Path .)
+
+	if ($currentDir.Contains($HOME)) {
+		$currentDir = $currentDir.Replace($HOME, "~")
+	}
+
+	Write-Host "$currentDir" -NoNewline -ForegroundColor Green
 
 	if (Test-Path .git) {
 		$branch = git rev-parse --abbrev-ref HEAD
