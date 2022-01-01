@@ -21,13 +21,21 @@ function prompt() {
 	return ' '
 }
 
+function ln([switch] $s, [string] $filePath, [string] $symlink) {
+	if ($s) {
+		New-Item -ItemType SymbolicLink -Value $filePath -Path $symlink | Out-Null
+	}
+	else {
+		New-Item -ItemType HardLink -Value $filePath -Path $symlink | Out-Null
+	}
+}
+
 Set-Alias ls list
 function list() {
 	Get-ChildItem -Name
 }
 
 Set-Alias mkdir makeDir
-
 function makeDir([string] $dir) {
 	if (Test-Path $dir) {
 		Write-Host "`r`n$dir already exists" -ForegroundColor Red

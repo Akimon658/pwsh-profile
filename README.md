@@ -7,3 +7,4 @@ My PowerShell profile
 - Replace `\` with `/`
 - Show current branch (only works on the project's root)
 - `mkdir` and `touch` with no outputs
+- `ln` command
