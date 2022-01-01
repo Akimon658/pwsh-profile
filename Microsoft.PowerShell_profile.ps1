@@ -52,3 +52,5 @@ function sudo([string] $cmd, $argumet) {
 function touch([string] $filename) {
 	New-Item -Type File $filename | Out-Null
 }
+
+Set-Alias vi nvim
