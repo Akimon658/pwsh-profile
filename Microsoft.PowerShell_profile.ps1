@@ -31,8 +31,13 @@ function ln([switch] $s, [string] $filePath, [string] $symlink) {
 }
 
 Set-Alias ls list
-function list([string] $path) {
-	Get-ChildItem $path -Name
+function list([switch] $l, [string] $path) {
+	if ($l) {
+		Get-ChildItem $path
+	}
+	else {
+			Get-ChildItem $path -Name
+	}
 }
 
 Set-Alias mkdir makeDir
