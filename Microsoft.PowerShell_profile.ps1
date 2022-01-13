@@ -40,7 +40,7 @@ function list([switch] $l, [string] $path) {
 		Get-ChildItem $path
 	}
 	else {
-			Get-ChildItem $path -Name
+		Get-ChildItem $path -Name
 	}
 }
 
