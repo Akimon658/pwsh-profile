@@ -21,6 +21,10 @@ function prompt() {
 	return ' '
 }
 
+function grep([string] $s) {
+	$input | Select-String -Pattern $s -NoEmphasis
+}
+
 function ln([switch] $s, [string] $filePath, [string] $symlink) {
 	if ($s) {
 		New-Item -ItemType SymbolicLink -Value $filePath -Path $symlink | Out-Null
