@@ -35,8 +35,11 @@ function ln([switch] $s, [string] $filePath, [string] $symlink) {
 }
 
 Set-Alias ls list
-function list([switch] $l, [string] $path) {
-	if ($l) {
+function list([switch] $a, [switch] $l, [string] $path) {
+	if ($a) {
+		Get-ChildItem $path -Force -Name
+	}
+	elseif ($l) {
 		Get-ChildItem $path
 	}
 	else {
