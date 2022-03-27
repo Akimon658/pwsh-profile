@@ -54,6 +54,22 @@ function makeDir([string] $dir) {
 	}
 }
 
+Set-Alias rm remove
+function remove([switch] $f, [switch] $r, [switch] $rf, [string] $path) {
+	if ($f) {
+		Remove-Item -Path $path -Force
+	}
+	elseif ($r) {
+		Remove-Item -Path $path -Recurse
+	}
+	elseif ($rf) {
+		Remove-Item -Path $path -Force -Recurse
+	}
+	else {
+		Remove-Item -Path $path
+	}
+}
+
 function sudo([string] $cmd, $argumet) {
 	Start-Process $cmd -Verb runas $argumet
 }
