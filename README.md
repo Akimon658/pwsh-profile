@@ -6,6 +6,6 @@ My PowerShell profile
 
 * Replace home directory with `~`
 * Replace `\` with `/`
-* Show current branch (only works on the project's root)
+* Show current branch
 * `mkdir` and `touch` with no outputs
 * `ln` command

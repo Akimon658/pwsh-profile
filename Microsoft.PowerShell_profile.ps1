@@ -8,8 +8,8 @@ function prompt() {
 
 	Write-Host "$currentDir" -NoNewline -ForegroundColor Green
 
-	if (Test-Path .git) {
-		$branch = git rev-parse --abbrev-ref HEAD
+	$branch = git rev-parse --abbrev-ref HEAD
+	if ($branch) {
 		Write-Host " ($branch)" -ForegroundColor Blue
 	}
 	else {
