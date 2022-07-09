@@ -47,18 +47,16 @@ function list([switch] $a, [switch] $l, [string] $path) {
   }
 }
 
-Set-Alias mkdir makeDir
-function makeDir([string] $dir) {
+function mkdir([string] $dir) {
   if (Test-Path $dir) {
-    Write-Host "`r`n$dir already exists" -ForegroundColor Red
+    Write-Error -Message "cannot  create directory ‘$dir’: File exists"
   }
   else {
-    New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    New-Item -ItemType Directory -Path $dir | Out-Null
   }
 }
 
-Set-Alias rm remove
-function remove([switch] $f, [switch] $r, [switch] $rf, [string] $path) {
+function rm([switch] $f, [switch] $r, [switch] $rf, [string] $path) {
   if ($f) {
     Remove-Item -Path $path -Force
   }
