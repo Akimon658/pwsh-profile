@@ -49,7 +49,7 @@ function list([switch] $a, [switch] $l, [string] $path) {
 
 function mkdir([string] $dir) {
   if (Test-Path $dir) {
-    Write-Error -Message "cannot  create directory ‘$dir’: File exists"
+    Write-Error -Message "cannot create directory ‘$dir’: File exists"
   }
   else {
     New-Item -ItemType Directory -Path $dir | Out-Null
