@@ -21,6 +21,9 @@ function prompt() {
   return ' '
 }
 
+Remove-Item Alias:* -Force
+New-Alias -Name cd -Value Set-Location
+
 function grep([string] $s) {
   $input | Select-String -Pattern $s -NoEmphasis
 }
@@ -34,8 +37,7 @@ function ln([switch] $s, [string] $filePath, [string] $symlink) {
   }
 }
 
-Set-Alias ls list
-function list([switch] $a, [switch] $l, [string] $path) {
+function ls([switch] $a, [switch] $l, [string] $path) {
   if ($a) {
     Get-ChildItem $path -Force -Name
   }
