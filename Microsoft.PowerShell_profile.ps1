@@ -24,6 +24,8 @@ function prompt()
   return ' '
 }
 
+Set-PSReadLineKeyHandler -Key 'Ctrl+t' -Function SwapCharacters
+
 Remove-Item Alias:* -Force
 New-Alias -Name cat -Value Get-Content
 New-Alias -Name cd -Value Set-Location
