@@ -24,7 +24,21 @@ function prompt()
   return ' '
 }
 
-Set-PSReadLineKeyHandler -Key 'Ctrl+t' -Function SwapCharacters
+function onViModeChange
+{
+  if ($args[0] -eq 'Command')
+  {
+    Write-Host -NoNewline "`e[1 q"
+  } else
+  {
+    Write-Host -NoNewline "`e[5 q"
+  }
+}
+
+Set-PSReadLineOption -EditMode Vi -ViModeIndicator Script -ViModeChangeHandler $Function:onViModeChange
+# Ctrl+[ doesn't work so using Oem4 (PowerShell/PSReadLine#906)
+Set-PSReadLineKeyHandler -Key Ctrl+Oem4 -Function ViCommandMode
+Set-PSReadLineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 
 Remove-Item Alias:* -Force
 New-Alias -Name cat -Value Get-Content
