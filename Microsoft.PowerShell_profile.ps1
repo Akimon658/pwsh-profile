@@ -38,6 +38,8 @@ function onViModeChange
 Set-PSReadLineOption -EditMode Vi -ViModeIndicator Script -ViModeChangeHandler $Function:onViModeChange
 # Ctrl+[ doesn't work so using Oem4 (PowerShell/PSReadLine#906)
 Set-PSReadLineKeyHandler -Key Ctrl+Oem4 -Function ViCommandMode
+Set-PSReadLineKeyHandler -Key Ctrl+h -Function BackwardDeleteChar
+Set-PSReadLineKeyHandler -Key Ctrl+m -Function AcceptLine
 Set-PSReadLineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 
 Remove-Item Alias:* -Force
