@@ -43,6 +43,7 @@ Set-PSReadLineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 Remove-Item Alias:* -Force
 New-Alias -Name cat -Value Get-Content
 New-Alias -Name cd -Value Set-Location
+New-Alias -Name echo -Value Write-Output
 
 function grep([string] $s)
 {
