@@ -45,6 +45,7 @@ Remove-Item Alias:* -Force
 New-Alias -Name cat -Value Get-Content
 New-Alias -Name cd -Value Set-Location
 New-Alias -Name echo -Value Write-Output
+New-Alias -Name mv -Value Move-Item
 
 function grep([string] $s)
 {
