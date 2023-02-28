@@ -45,7 +45,6 @@ Remove-Item Alias:* -Force
 New-Alias -Name cat -Value Get-Content
 New-Alias -Name cd -Value Set-Location
 New-Alias -Name echo -Value Write-Output
-New-Alias -Name mv -Value Move-Item
 
 function grep([string] $s)
 {
@@ -85,6 +84,17 @@ function mkdir([string] $dir)
   } else
   {
     New-Item -ItemType Directory -Path $dir | Out-Null
+  }
+}
+
+function mv([string] $source, [string] $destination)
+{
+  if (!$destination)
+  {
+    Write-Error -Message "missing destination file operand after '$source'"
+  } else
+  {
+    Move-Item -Path $source -Destination $destination
   }
 }
 
