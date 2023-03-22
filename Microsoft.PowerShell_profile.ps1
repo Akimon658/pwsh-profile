@@ -1,26 +1,4 @@
-function prompt()
-{
-  $currentDir = Convert-Path .
-  if ($currentDir.Contains($HOME))
-  {
-    $currentDir = $currentDir.Replace($HOME, "~")
-  }
-
-  Write-Host "$currentDir" -NoNewline -ForegroundColor Green
-
-  $branch = git rev-parse --abbrev-ref HEAD
-  if ($branch)
-  {
-    Write-Host " ($branch)" -ForegroundColor Blue
-  } else
-  {
-    Write-Host "`r"
-  }
-
-  Write-Host '$' -NoNewline -Foregroundcolor White
-
-  return ' '
-}
+oh-my-posh init pwsh --config '~\AppData\Local\Programs\oh-my-posh\themes\kushal.omp.json' | Invoke-Expression
 
 function onViModeChange
 {
