@@ -20,4 +20,3 @@ Set-PSReadLineKeyHandler -Chord Ctrl+m -Function AcceptLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardKillWord
 
 Remove-Item Alias:* -Force
-New-Alias -Name cd -Value Set-Location
