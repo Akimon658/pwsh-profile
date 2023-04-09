@@ -21,6 +21,8 @@ Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardKillWord
 
 Remove-Item Alias:* -Force
 
+New-Alias -Name cd -Value Set-Location
+
 function mkdir
 {
   mkdir.exe $args
